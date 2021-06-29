@@ -1,17 +1,10 @@
 import React from "react";
 import LoginView from '../component/login/login'
-import IndexView from "../view/index";
-import AboutView from "../view/about";
-import UndefinedView from "../view/404";
+import IndexView from "../component/home/index";
+import AboutView from "../component/about/about";
+import UndefinedView from "../component/not-found/404";
 
 const routes = [
-  {
-    path: "/",
-    exact: true,
-    render(props) {
-      return <IndexView {...props} />;
-    }
-  },
   {
     path: "/login",
     exact: true,
@@ -24,6 +17,13 @@ const routes = [
     exact: true,
     render(props) {
       return <AboutView {...props} />;
+    }
+  },
+  {
+    path: ["/", "/home"],
+    // exact: true,
+    render(props) {
+      return <IndexView {...props} />;
     }
   },
   {

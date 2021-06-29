@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { Route, Switch } from "react-router-dom";
-import routes from "./route/router";
+import routes from "./route/routes";
 
 function App() {
   return (
