@@ -39,6 +39,12 @@
     height: 60px;
     line-height: 60px;
     text-align: center;
+    span {
+      padding: 0 3px;
+      &:hover {
+        color: #f33;
+      }
+    }
   }
   .link-button {
     color: #1890ff;

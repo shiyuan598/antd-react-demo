@@ -9,7 +9,8 @@ import {
   DesktopOutlined,
   ContainerOutlined,
   MailOutlined,
-  SmileOutlined
+  SmileOutlined,
+  HeartOutlined
 } from "@ant-design/icons";
 import "./home.scss";
 import List from "./child/list";
@@ -117,7 +118,7 @@ export default class IndexView extends React.Component {
             </Switch>
           </div>
           <div className="footer">
-              Tug&Pig
+              Tug<span><HeartOutlined /></span>Peanut<span><HeartOutlined /></span>Pig
           </div>
         </div>
       </div>
