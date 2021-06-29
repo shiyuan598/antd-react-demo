@@ -8,7 +8,8 @@ import {
   PieChartOutlined,
   DesktopOutlined,
   ContainerOutlined,
-  MailOutlined
+  MailOutlined,
+  SmileOutlined
 } from "@ant-design/icons";
 import "./home.scss";
 import List from "./child/list";
@@ -35,6 +36,9 @@ export default class IndexView extends React.Component {
     return (
       <div className="container">
         <div className="sidebar">
+            <div className="top-icon">
+            <SmileOutlined />
+            </div>
           <Menu
             defaultSelectedKeys={["1"]}
             defaultOpenKeys={["sub1"]}
@@ -102,6 +106,7 @@ export default class IndexView extends React.Component {
                 this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined
               )}
             </Button>
+            <span className="title">React Router Redux</span>
           </div>
           <div className="content">
             <Switch>
@@ -111,7 +116,9 @@ export default class IndexView extends React.Component {
               <Route path="/home/nodata" exact component={NoData} />
             </Switch>
           </div>
-          <div className="footer"></div>
+          <div className="footer">
+              Tug&Pig
+          </div>
         </div>
       </div>
     );

@@ -5,6 +5,13 @@
   .sidebar {
     width: 220px;
     background-color: #001529;
+    .top-icon {
+        text-align: center;
+        height: 60px;
+        line-height: 60px;
+        color: #fff;
+        font-size: 32px;
+    }
   }
   .main {
     width: calc(100% - 220px);
@@ -13,7 +20,14 @@
   }
   .header {
     height: 60px;
+    line-height: 60px;
+    padding: 0 15px;
     background-color: #fff;
+    .title {
+        font-size: 24px;
+        font-weight: 700;
+        margin-left: calc(50% - 200px);
+    }
   }
   .content {
     margin-top: 15px;
@@ -23,6 +37,8 @@
   }
   .footer {
     height: 60px;
+    line-height: 60px;
+    text-align: center;
   }
   .link-button {
     color: #1890ff;
