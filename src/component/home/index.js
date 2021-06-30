@@ -30,7 +30,7 @@ class IndexView extends React.Component {
     this.props.dispatch({
       type: "TOGGLE_COLLAPSED"
     })
-    this.forceUpdate();
+    // this.forceUpdate();
     // this.setState({
     //   collapsed: !this.state.collapsed
     // });
