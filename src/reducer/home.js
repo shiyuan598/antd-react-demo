@@ -1,4 +1,4 @@
-export default function home(home = {}, action) {
+export default function home(home = {collapsed: false}, action) {
   switch (action.type) {
     case "TOGGLE_COLLAPSED":
       home.collapsed = !home.collapsed;

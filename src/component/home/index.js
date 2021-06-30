@@ -22,20 +22,24 @@ import NoData from "./child/noData";
 const { SubMenu } = Menu;
 
 class IndexView extends React.Component {
-  state = {
-    collapsed: false
-  };
+  // state = {
+  //   collapsed: false
+  // };
 
   toggleCollapsed = () => {
-    this.setState({
-      collapsed: !this.state.collapsed
-    });
+    this.props.dispatch({
+      type: "TOGGLE_COLLAPSED"
+    })
+    this.forceUpdate();
+    // this.setState({
+    //   collapsed: !this.state.collapsed
+    // });
   };
   menuClick({ key }) {
     this.props.history.push(key);
   }
   render() {
-      console.info(this.props);
+      console.info(this.props.home, 'render');
     return (
       <div className="container">
         <div className="sidebar">
@@ -47,7 +51,7 @@ class IndexView extends React.Component {
             defaultOpenKeys={["sub1"]}
             mode="inline"
             theme="dark"
-            inlineCollapsed={this.state.collapsed}
+            inlineCollapsed={this.props.home.collapsed}
           >
             <Menu.Item key="1" icon={<PieChartOutlined />}>
               Option 1
@@ -105,10 +109,10 @@ class IndexView extends React.Component {
               style={{ marginBottom: 16 }}
             >
               {React.createElement(
-                this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined
+                this.props.home.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined
               )}
             </Button>
-            <span className="title">React Router Redux</span>
+              <span className="title">React Router Redux{this.props.home.collapsed.toString()}</span>
           </div>
           <div className="content">
             <Switch>
