@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from 'react-redux'
 import { Route, Switch } from "react-router-dom";
 import { Menu, Button } from "antd";
 import {
@@ -20,7 +21,7 @@ import NoData from "./child/noData";
 
 const { SubMenu } = Menu;
 
-export default class IndexView extends React.Component {
+class IndexView extends React.Component {
   state = {
     collapsed: false
   };
@@ -34,6 +35,7 @@ export default class IndexView extends React.Component {
     this.props.history.push(key);
   }
   render() {
+      console.info(this.props);
     return (
       <div className="container">
         <div className="sidebar">
@@ -99,7 +101,6 @@ export default class IndexView extends React.Component {
         <div className="main">
           <div className="header">
             <Button
-              // type="primary"
               onClick={this.toggleCollapsed}
               style={{ marginBottom: 16 }}
             >
@@ -125,3 +126,7 @@ export default class IndexView extends React.Component {
     );
   }
 }
+
+IndexView = connect(state=>state)(IndexView);
+
+export default IndexView;
