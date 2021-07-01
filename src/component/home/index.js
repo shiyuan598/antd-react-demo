@@ -25,18 +25,19 @@ class IndexView extends React.Component {
     this.props.history.push(key);
   }
   render() {
+    const { collapsed } = this.props.home;
     return (
       <div className="container">
-        <div className="sidebar">
+        <div className={["sidebar", collapsed && "sidebar-collapsed"].join(' ')}>
           <div className="top-icon">
-            <SmileOutlined />
+            <SmileOutlined /><span className="text">{!collapsed && "ShiYuan"}</span>
           </div>
           <Menu
             defaultSelectedKeys={["1"]}
             defaultOpenKeys={["sub1"]}
             mode="inline"
             theme="dark"
-            inlineCollapsed={this.props.home.collapsed}
+            inlineCollapsed={collapsed}
           >
             <Menu.Item key="1" icon={<PieChartOutlined />}>
               Option 1
@@ -84,7 +85,7 @@ class IndexView extends React.Component {
             </SubMenu>
           </Menu>
         </div>
-        <div className="main">
+        <div className={["main", collapsed && "main-collapsed"].join(' ')}>
           <Header />
           <div className="content">
             <Switch>

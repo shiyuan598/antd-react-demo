@@ -11,7 +11,18 @@
       line-height: 60px;
       color: #fff;
       font-size: 32px;
+      span.text{
+          font-size: 24px;
+          padding-left: 3px;
+      }
     }
+  }
+  .sidebar-collapsed {
+    width: 80px;
+  }
+  .sidebar,
+  .sidebar-collapsed {
+    transition: all 0.3s cubic-bezier(0.2, 0, 0, 1) 0s;
   }
   .main {
     width: calc(100% - 220px);
