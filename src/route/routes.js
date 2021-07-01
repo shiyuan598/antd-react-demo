@@ -1,5 +1,5 @@
 import React from "react";
-import LoginView from '../component/login/login'
+import LoginView from "../component/login/login";
 import IndexView from "../component/home/index";
 import AboutView from "../component/about/about";
 import UndefinedView from "../component/not-found/404";

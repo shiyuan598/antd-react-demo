@@ -1,8 +1,10 @@
 import React, { Fragment } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import routes from "./route/routes";
+import { useSelector } from "react-redux";
 
 function App() {
+  const login = useSelector((state) => state.login);
   return (
     <Fragment>
       <Switch>
@@ -12,7 +14,13 @@ function App() {
               key={item.path}
               path={item.path}
               exact={item.exact}
-              render={item.render}
+              render={
+                !login.name && item.path !== "/login"
+                  ? () => {
+                      return <Redirect to="/login" />;
+                    }
+                  : item.render
+              }
             />
           );
         })}

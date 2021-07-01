@@ -2,10 +2,15 @@ import React, { Component } from "react";
 import { Form, Input, Button, Checkbox } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import "./login.scss";
+import { connect } from "react-redux";
 
 class LoginForm extends Component {
   onFinish = (values) => {
-    console.log("Received values of form: ", values);
+    this.props.dispatch({
+      type: "LOGIN",
+      ...values
+    });
+    this.props.history.push('/home');
   };
   render() {
     return (
@@ -73,4 +78,5 @@ class LoginForm extends Component {
   }
 }
 
+LoginForm = connect((state) => state)(LoginForm);
 export default LoginForm;
