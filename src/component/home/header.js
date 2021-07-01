@@ -1,10 +1,15 @@
 import React from "react";
-import { Button } from "antd";
-import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
+import { Button, Avatar, Popover } from "antd";
+import {
+  MenuUnfoldOutlined,
+  MenuFoldOutlined,
+  UserOutlined,
+  LogoutOutlined
+} from "@ant-design/icons";
 import { useSelector, useDispatch } from "react-redux";
 
 export default function Header() {
-  const state = useSelector((state) => state.home);
+  const { home, login } = useSelector((state) => state);
   const dispatch = useDispatch();
   function toggleCollapsed() {
     dispatch({
@@ -13,12 +18,34 @@ export default function Header() {
   }
   return (
     <div className="header">
-      <Button onClick={toggleCollapsed} style={{ marginBottom: 16 }}>
+      <Button className="btn" onClick={toggleCollapsed}>
         {React.createElement(
-          state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined
+          home.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined
         )}
       </Button>
       <span className="title">React Router Redux</span>
+      <Popover
+        arrowPointAtCenter={true}
+        placement="bottomRight"
+        title={login.name}
+        content={
+          <div>
+            <Button
+              type="link"
+              onClick={() => {
+                dispatch({
+                  type: "LOGOUT"
+                });
+              }}
+            >
+              退出登录
+              <LogoutOutlined />
+            </Button>
+          </div>
+        }
+      >
+        <Avatar className="user-icon" icon={<UserOutlined />} />
+      </Popover>
     </div>
   );
 }

@@ -11,9 +11,9 @@
       line-height: 60px;
       color: #fff;
       font-size: 32px;
-      span.text{
-          font-size: 24px;
-          padding-left: 3px;
+      span.text {
+        font-size: 24px;
+        padding-left: 3px;
       }
     }
   }
@@ -34,10 +34,19 @@
     line-height: 60px;
     padding: 0 15px;
     background-color: #fff;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .btn {
+      float: left;
+    }
+    .user-icon {
+      float: right;
+    }
     .title {
       font-size: 24px;
       font-weight: 700;
-      margin-left: calc(50% - 200px);
     }
   }
   .content {

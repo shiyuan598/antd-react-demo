@@ -1,4 +1,4 @@
-export default function home(user = {}, action) {
+export default function home(login = {}, action) {
   switch (action.type) {
     case "LOGIN":
       return {
@@ -11,5 +11,5 @@ export default function home(user = {}, action) {
     default:
       break;
   }
-  return user;
+  return login;
 }
