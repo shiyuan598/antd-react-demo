@@ -1,51 +1,36 @@
 import React from "react";
-import { connect } from 'react-redux'
+import { connect } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-import { Menu, Button } from "antd";
+import { Menu } from "antd";
 import {
   AppstoreOutlined,
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
   PieChartOutlined,
   DesktopOutlined,
   ContainerOutlined,
   MailOutlined,
-  SmileOutlined,
-  HeartOutlined
+  SmileOutlined
 } from "@ant-design/icons";
 import "./home.scss";
 import List from "./child/list";
 import TimeLine from "./child/timeline";
 import Statis from "./child/statis";
 import NoData from "./child/noData";
+import Header from "./header";
+import Footer from "./footer";
 
 const { SubMenu } = Menu;
 
 class IndexView extends React.Component {
-  // state = {
-  //   collapsed: false
-  // };
-
-  toggleCollapsed = () => {
-    this.props.dispatch({
-      type: "TOGGLE_COLLAPSED"
-    })
-    // this.forceUpdate();
-    // this.setState({
-    //   collapsed: !this.state.collapsed
-    // });
-  };
   menuClick({ key }) {
     this.props.history.push(key);
   }
   render() {
-      console.info(this.props.home, 'render');
     return (
       <div className="container">
         <div className="sidebar">
-            <div className="top-icon">
+          <div className="top-icon">
             <SmileOutlined />
-            </div>
+          </div>
           <Menu
             defaultSelectedKeys={["1"]}
             defaultOpenKeys={["sub1"]}
@@ -63,10 +48,7 @@ class IndexView extends React.Component {
               Option 3
             </Menu.Item>
             <SubMenu key="sub1" icon={<MailOutlined />} title="Navigation One">
-              <Menu.Item
-                key="/home"
-                onClick={(event) => this.menuClick(event)}
-              >
+              <Menu.Item key="/home" onClick={(event) => this.menuClick(event)}>
                 List
               </Menu.Item>
               <Menu.Item
@@ -103,17 +85,7 @@ class IndexView extends React.Component {
           </Menu>
         </div>
         <div className="main">
-          <div className="header">
-            <Button
-              onClick={this.toggleCollapsed}
-              style={{ marginBottom: 16 }}
-            >
-              {React.createElement(
-                this.props.home.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined
-              )}
-            </Button>
-              <span className="title">React Router Redux{this.props.home.collapsed.toString()}</span>
-          </div>
+          <Header />
           <div className="content">
             <Switch>
               <Route path="/home" exact component={List} />
@@ -122,15 +94,13 @@ class IndexView extends React.Component {
               <Route path="/home/nodata" exact component={NoData} />
             </Switch>
           </div>
-          <div className="footer">
-              Tug<span><HeartOutlined /></span>Peanut<span><HeartOutlined /></span>Pig
-          </div>
+          <Footer />
         </div>
       </div>
     );
   }
 }
 
-IndexView = connect(state=>state)(IndexView);
+IndexView = connect((state) => state)(IndexView);
 
 export default IndexView;
